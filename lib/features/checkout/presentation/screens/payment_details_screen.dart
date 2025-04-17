@@ -1,5 +1,6 @@
 import 'package:checkout_feature/common/build_app_bar.dart';
 import 'package:checkout_feature/common/custom_button.dart';
+import 'package:checkout_feature/features/checkout/presentation/screens/thank_you_screen.dart';
 import 'package:checkout_feature/features/checkout/presentation/widgets/custom_credit_card.dart';
 import 'package:checkout_feature/features/checkout/presentation/widgets/payment_methods_list_view.dart';
 import 'package:flutter/material.dart';
@@ -33,17 +34,21 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 16.0, left: 12.0, right: 12.0),
+                padding: const EdgeInsets.only(
+                    bottom: 16.0, left: 12.0, right: 12.0),
                 child: CustomButton(
                   title: 'Pay',
                   onTap: () {
-                    if (formKey.currentState!.validate()){
+                    if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                     } else {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ThankYouScreen(),
+                        ),
+                      );
                       autovalidateMode = AutovalidateMode.always;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     }
                   },
                 ),
