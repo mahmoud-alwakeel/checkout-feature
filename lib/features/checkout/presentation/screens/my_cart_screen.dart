@@ -1,9 +1,9 @@
-import 'package:checkout_feature/core/utils/styles.dart';
-import 'package:checkout_feature/features/checkout/presentation/widgets/custom_button.dart';
+import 'package:checkout_feature/common/build_app_bar.dart';
+import 'package:checkout_feature/common/custom_button.dart';
+import 'package:checkout_feature/features/checkout/presentation/screens/payment_details_screen.dart';
 import 'package:checkout_feature/features/checkout/presentation/widgets/order_info_item.dart';
 import 'package:checkout_feature/features/checkout/presentation/widgets/total_price.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MyCartScreen extends StatelessWidget {
   const MyCartScreen({super.key});
@@ -11,17 +11,7 @@ class MyCartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Center(
-            child: SvgPicture.asset(
-          'assets/icons/back_arrow_icon.svg',
-          width: 24,
-        )),
-        title: const Text(
-          'My Cart',
-          style: Styles.style25,
-        ),
-      ),
+      appBar: buildAppBar(title: 'My Cart'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
@@ -54,11 +44,26 @@ class MyCartScreen extends StatelessWidget {
             const Divider(
               height: 34,
             ),
-            const TotalPrice(title: 'Total', value: r'$50.97',),
+            const TotalPrice(
+              title: 'Total',
+              value: r'$50.97',
+            ),
             const SizedBox(
               height: 24,
             ),
-            const CustomButton(),
+            CustomButton(
+              title: 'Complete Payment',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PaymentDetailsScreen();
+                    },
+                  ),
+                );
+              },
+            ),
             const SizedBox(
               height: 30,
             ),
