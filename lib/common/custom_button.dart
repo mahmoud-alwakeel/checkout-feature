@@ -5,10 +5,12 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.onTap,
-    required this.title,
+    required this.title, 
+    this.isLoading = false,
   });
   final void Function()? onTap;
   final String title;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +24,7 @@ class CustomButton extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         ),
         child: Center(
-          child: Text(
+          child: isLoading ? CircularProgressIndicator() : Text(
             title,
             style: Styles.style22,
           ),
