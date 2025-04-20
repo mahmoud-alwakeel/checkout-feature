@@ -62,9 +62,11 @@ class MyCartScreen extends StatelessWidget {
                 //     },
                 //   ),
                 // );
-                showModalBottomSheet(context: context, builder: (context) {
-                  return PaymentmethodsBottomSheet();
-                });
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return PaymentmethodsBottomSheet();
+                    });
               },
             ),
             const SizedBox(
@@ -88,8 +90,10 @@ class PaymentmethodsBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PaymentMethodsListView(),
-          SizedBox(height: 32,),
-          CustomButton(onTap: (){}, title: 'continue')
+          SizedBox(
+            height: 32,
+          ),
+          CustomButton(onTap: () {}, title: 'continue')
         ],
       ),
     );

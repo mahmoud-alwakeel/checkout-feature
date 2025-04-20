@@ -27,7 +27,7 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
             return Padding(
               padding: const EdgeInsetsDirectional.only(end: 12.0),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   setState(() {
                     activeIndex = index;
                   });
