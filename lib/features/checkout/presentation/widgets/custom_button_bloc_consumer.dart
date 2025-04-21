@@ -32,6 +32,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
               ),
             ),
           );
+          print(state.errorMessage);
         }
       },
       builder: (context, state) {
@@ -42,6 +43,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
                 PaymentIntentInputModel(
               amount: '100',
               currency: 'USD',
+              customerId: 'cus_SAhDO7GglOA6IH',
             );
             BlocProvider.of<PaymentCubit>(context).makePayment(
               paymentIntentInputModel: paymentIntentInputModel,

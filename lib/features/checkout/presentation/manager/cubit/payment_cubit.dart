@@ -25,6 +25,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       ),
     );
   }
+
   @override
   void onChange(Change<PaymentState> change) {
     log(change.toString());
