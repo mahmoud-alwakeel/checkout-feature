@@ -8,7 +8,7 @@ class PaymentIntentInputModel {
     required this.currency,
     required this.customerId,
   });
-  Map<String, dynamic> tojson() {
+  Map<String, dynamic> toJson() {
     return {
       // 'amount': (double.parse(amount) * 100).round(),
       'amount': amount,
