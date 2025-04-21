@@ -8,7 +8,7 @@ class PaymentIntentInputModel {
   });
   tojson() {
     return {
-      'amount': amount,
+      'amount': '${amount}00',
       'currency': currency,
     };
   }
