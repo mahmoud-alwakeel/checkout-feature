@@ -1,7 +1,7 @@
 class AmountModel {
   final String total;
   final String currency;
-  final AmountDetails details;
+  final AmountDetailsModel details;
 
   AmountModel({
     required this.total,
@@ -13,7 +13,7 @@ class AmountModel {
     return AmountModel(
       total: json['total'],
       currency: json['currency'],
-      details: AmountDetails.fromJson(json['details']),
+      details: AmountDetailsModel.fromJson(json['details']),
     );
   }
 
@@ -26,19 +26,19 @@ class AmountModel {
   }
 }
 
-class AmountDetails {
+class AmountDetailsModel {
   final String subtotal;
   final String shipping;
   final int shippingDiscount;
 
-  AmountDetails({
+  AmountDetailsModel({
     required this.subtotal,
     required this.shipping,
     required this.shippingDiscount,
   });
 
-  factory AmountDetails.fromJson(Map<String, dynamic> json) {
-    return AmountDetails(
+  factory AmountDetailsModel.fromJson(Map<String, dynamic> json) {
+    return AmountDetailsModel(
       subtotal: json['subtotal'],
       shipping: json['shipping'],
       shippingDiscount: json['shipping_discount'],
